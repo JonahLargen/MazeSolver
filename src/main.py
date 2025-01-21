@@ -2,9 +2,10 @@ from cell import Cell
 from point import Point
 from line import Line
 from window import Window
+from maze import Maze
 
 def main():
-    win = Window(800, 600)
+    win = Window(1800, 1200)
     win.draw_line(Line(Point(50, 50), Point(100, 100)), "red")
     cell = Cell(win)
     cell.has_bottom_wall = False
@@ -17,6 +18,7 @@ def main():
     cell3.has_top_wall = False
     cell3.draw(400, 400, 500, 500)
     cell2.draw_move(cell3, True)
+    maze = Maze(600, 600, 3, 4, 50, 50, win)
     win.wait_for_close()
 
 main()

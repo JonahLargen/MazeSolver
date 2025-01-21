@@ -9,14 +9,14 @@ class Window:
         self.__widget.pack(fill=BOTH, expand=True)
         self.__running = False
 
-    def __redraw(self):
+    def redraw(self):
         self.__widget.update_idletasks()
         self.__widget.update()
         
     def wait_for_close(self):
         self.__running = True
         while self.__running:
-            self.__redraw()
+            self.redraw()
             
     def close(self):
         self.__running = False
