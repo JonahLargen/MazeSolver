@@ -10,7 +10,7 @@ def main():
     win = Window(width, height)
     num_rows = (height - margin * 2) // cell_size
     num_cols = (width - margin * 2) // cell_size
-    maze = Maze(margin, margin, num_rows, num_cols, cell_size, cell_size, delay, win)
+    maze = Maze(margin, margin, num_rows, num_cols, cell_size, cell_size, delay, win, 0)
     win.wait_for_close()
 
 main()
