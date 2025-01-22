@@ -2,13 +2,14 @@ from cell import Cell
 import time
 
 class Maze:
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win=None):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, delay, win=None):
         self._x1 = x1
         self._y1 = y1
         self._num_rows = num_rows
         self._num_cols = num_cols
         self._cell_size_x = cell_size_x
         self._cell_size_y = cell_size_y
+        self._delay = delay
         self._win = win
         
         self._create_cells()
@@ -32,7 +33,7 @@ class Maze:
         if (self._win is None):
             return
         self._win.redraw()
-        time.sleep(0.05)
+        time.sleep(self._delay)
             
     def _break_entrance_and_exit(self):
         self._cells[0][0].has_top_wall = False
