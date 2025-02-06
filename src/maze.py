@@ -16,9 +16,6 @@ class Maze:
         if seed is not None:
             random.seed(seed)
 
-        self._animate()
-        time.sleep(5)
-
         self._create_cells()
         self._break_entrance_and_exit()
         self._break_walls_r(0, 0)
