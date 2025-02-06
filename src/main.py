@@ -3,8 +3,6 @@ from maze import Maze
 import sys
 import argparse
 
-sys.setrecursionlimit(100_000)
-
 def main():
     parser = argparse.ArgumentParser(description="Process some command line arguments.")
     
@@ -14,6 +12,7 @@ def main():
     parser.add_argument('--size', type=int, default=100, help='Cell size in pixels')
     parser.add_argument('--delay', type=float, default=0.05, help='Delay in seconds')
     parser.add_argument('--seed', type=int, default=None, help='Seed used in random.seed(...)')
+    parser.add_argument('--max_recursion', type=int, default=10_000, help='Max recursion for DFS')
     
     args = parser.parse_args()
     
@@ -23,6 +22,10 @@ def main():
     cell_size = args.size
     delay =args.delay
     seed = args.seed
+    max_recursion = args.max_recursion
+    
+    sys.setrecursionlimit(max_recursion)
+    
     win = Window(width, height)
     num_rows = (height - margin * 2) // cell_size
     num_cols = (width - margin * 2) // cell_size
