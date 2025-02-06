@@ -9,6 +9,8 @@ A python application that builds a maze from scratch using parameters and then s
 
 ## How It Works
 
+<img src="Animation.gif" alt="Animation" width="500" height="300">
+
 1. The maze class is created via a 2d array of cells. 
 2. Each cell is represented by 4 points, which is used to determine the lines and center of each cell.
 3. The cell class tracks metadata such as if it has been visited, and what walls have been broken, which is what the algorithms reference.
