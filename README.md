@@ -42,8 +42,14 @@ To run the program, you can run the main script from the root of the project:
 ./main.sh
 ```
 
-Or, run the python program directly:
+Or, run the python program directly, and specify params as needed:
 
 ```
-python3 src/main.py
+python3 src/main.py --width 1200 --height 900 --margin 100 --size 50 --delay 0.01 --seed 0 --max_recursion 100_000
+```
+
+You can see all the parameters using the help command:
+
+```
+python3 src/main.py --help
 ```
