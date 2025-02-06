@@ -96,9 +96,19 @@ class Maze:
                 self._cells[i][j].visited = False
                 
     def solve(self):
-        self._solve_r(0, 0)
+        solves = []
+        undos = []
+        self._solve_r(0, 0, solves, undos)
+        for solve in solves:
+            solve[0].clear_move(solve[1])
+        for undo in undos:
+            undo[0].clear_move(undo[1])
+        time.sleep(1)
+        for solve in reversed(solves):
+            solve[0].draw_winner(solve[1])
+            self._animate(scale=3)
     
-    def _solve_r(self, i, j):
+    def _solve_r(self, i, j, solves, undos):
         self._animate(scale=3)
         cell = self._cells[i][j]
         cell.visited = True
@@ -108,36 +118,44 @@ class Maze:
             left = self._cells[i - 1][j]
             if not left.has_right_wall and not left.visited:
                 cell.draw_move(left)
-                solved = self._solve_r(i - 1, j)
+                solved = self._solve_r(i - 1, j, solves, undos)
                 if solved:
+                    solves.append((cell, left))
                     return True
                 else:
                     cell.draw_move(left, undo=True)
+                    undos.append((cell, left))
         if i < self._num_cols - 1:
             right = self._cells[i + 1][j]
             if not right.has_left_wall and not right.visited:
                 cell.draw_move(right)
-                solved = self._solve_r(i + 1, j)
+                solved = self._solve_r(i + 1, j, solves, undos)
                 if solved:
+                    solves.append((cell, right))
                     return True
                 else:
                     cell.draw_move(right, undo=True)
+                    undos.append((cell, right))
         if j > 0:
             top = self._cells[i][j - 1]
             if not top.has_bottom_wall and not top.visited:
                 cell.draw_move(top)
-                solved = self._solve_r(i, j - 1)
+                solved = self._solve_r(i, j - 1, solves, undos)
                 if solved:
+                    solves.append((cell, top))
                     return True
                 else:
                     cell.draw_move(top, undo=True)
+                    undos.append((cell, top))
         if j < self._num_rows - 1:
             bottom = self._cells[i][j + 1]
             if not bottom.has_top_wall and not bottom.visited:
                 cell.draw_move(bottom)
-                solved = self._solve_r(i, j + 1)
+                solved = self._solve_r(i, j + 1, solves, undos)
                 if solved:
+                    solves.append((cell, bottom))
                     return True
                 else:
                     cell.draw_move(bottom, undo=True)
+                    undos.append((cell, bottom))
         return False

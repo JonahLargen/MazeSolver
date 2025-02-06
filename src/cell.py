@@ -32,3 +32,13 @@ class Cell:
         if (self.__win is None):
             return
         self.__win.draw_line(Line(Point((self.__x1 + self.__x2) / 2, (self.__y1 + self.__y2) / 2), Point((to_cell.__x1 + to_cell.__x2) / 2, (to_cell.__y1 + to_cell.__y2) / 2)), "gray" if not undo else "red")
+        
+    def clear_move(self, to_cell):
+        if (self.__win is None):
+            return
+        self.__win.draw_line(Line(Point((self.__x1 + self.__x2) / 2, (self.__y1 + self.__y2) / 2), Point((to_cell.__x1 + to_cell.__x2) / 2, (to_cell.__y1 + to_cell.__y2) / 2)), "white")
+        
+    def draw_winner(self, to_cell):
+        if (self.__win is None):
+            return
+        self.__win.draw_line(Line(Point((self.__x1 + self.__x2) / 2, (self.__y1 + self.__y2) / 2), Point((to_cell.__x1 + to_cell.__x2) / 2, (to_cell.__y1 + to_cell.__y2) / 2)), "gold")

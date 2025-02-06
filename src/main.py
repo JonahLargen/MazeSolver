@@ -10,7 +10,7 @@ def main():
     parser.add_argument('--height', type=int, default=600, help='Height in pixels')
     parser.add_argument('--margin', type=int, default=50, help='Margin in pixels')
     parser.add_argument('--size', type=int, default=100, help='Cell size in pixels')
-    parser.add_argument('--delay', type=float, default=0.05, help='Delay in seconds')
+    parser.add_argument('--delay', type=float, default=0.05, help='Base delay in seconds (will be scaled during different processes)')
     parser.add_argument('--seed', type=int, default=None, help='Seed used in random.seed(...)')
     parser.add_argument('--max_recursion', type=int, default=10_000, help='Max recursion for DFS')
     
