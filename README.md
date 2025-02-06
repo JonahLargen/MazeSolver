@@ -1,5 +1,3 @@
-WIP
-
 # Maze Solver
 <img src="maze_solver.jpg" width="128" alt="Maze Solver">
 
@@ -14,7 +12,7 @@ A python application that builds a maze from scratch using parameters and then s
 1. The maze class is created via a 2d array of cells. 
 2. Each cell is represented by 4 points, which is used to determine the lines and center of each cell.
 3. The cell class tracks metadata such as if it has been visited, and what walls have been broken, which is what the algorithms reference.
-4. The walls are broken via DFS. Up to 4 adjacent walls that have not yet been broken are picked from randomly. The function is then called recursively after the wall is broken.
+4. The walls are broken via DFS. One of up to 4 adjacent walls that have not yet been broken are picked from randomly. The function is then called recursively after the wall is broken.
 5. The walls are reset such that none of them have been 'visited'
 6. The maze is solved via DFS. It will look at each of the 4 directions and see if the wall is broken. If so, it recursively goes down that path, marking lines in gray. The recursive function notably returns a boolean such that if a dead end is reached, lines can be undone, as shown in red.
 7. Solved and reversed moves are stored so the maze can be cleared, then the correct solution is replayed in gold.
