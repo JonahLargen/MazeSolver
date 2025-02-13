@@ -10,7 +10,7 @@ A python application that builds a maze from scratch using parameters and then s
 <img src="Animation.gif" alt="Animation" width="500" height="300">
 
 1. The maze class is created via a 2d array of cells. 
-2. Each cell is represented by 4 points, which is used to determine the lines and center of each cell.
+2. Each cell is represented by 2 points, which is used to determine the edges and center of each cell.
 3. The cell class tracks metadata such as if it has been visited, and what walls have been broken, which is what the algorithms reference.
 4. The walls are broken via DFS. One of up to 4 adjacent walls that have not yet been broken are picked from randomly. The function is then called recursively after the wall is broken.
 5. The walls are reset such that none of them have been 'visited'
