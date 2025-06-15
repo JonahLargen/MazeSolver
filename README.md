@@ -1,8 +1,6 @@
 # Maze Solver
 <img src="maze_solver.jpg" width="128" alt="Maze Solver">
 
-[boot.dev](https://boot.dev) Maze Solver
-
 A python application that builds a maze from scratch using parameters and then solves it. The maze solving is done using [tkinter](https://docs.python.org/3/library/tkinter.html) to provide a visual UI so you can watch the program solve the maze in real time. The maze is constructed and solved using a Depth First Search (DFS) algorithm. This tool does not intend to be the most optimal way to build or solve a maze but rather showcase DFS being used in a real world application.
 
 ## How It Works
